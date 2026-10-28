@@ -1,0 +1,57 @@
+/dts-v1/;
+/*
+ * Crystal-RTOS Uniform Nested Devicetree Specification (arduino_zero.dts)
+ * Maintained by Crystal-RTOS Toolchain v2.
+ */
+
+/ {
+    #address-cells = <1>;
+    #size-cells = <1>;
+    model = "arduino_zero";
+    compatible = "crystal,arduino_zero";
+    crystal,arch = "cortex_m0plus";
+
+    chosen {
+    };
+
+    crystal_toolchain {
+        arch = "cortex_m0plus";
+        runner = "openocd";
+        soc = "samd21g18a";
+    };
+
+    cpus {
+        #address-cells = <1>;
+        #size-cells = <0>;
+    };
+
+    memories {
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        flash0: flash {
+            reg = <0x0 0x40000>;
+        };
+
+        sram0: sram {
+            reg = <0x20000000 0x8000>;
+        };
+    };
+
+    soc {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        compatible = "simple-bus";
+        ranges;
+    };
+
+    leds {
+        builtin_led: builtin_led {
+            gpios = <&gpioa 17 0>;
+        };
+    };
+
+    aliases {
+        builtin_led = &builtin_led;
+    };
+};

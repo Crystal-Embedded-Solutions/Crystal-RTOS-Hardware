@@ -1,0 +1,9 @@
+/* SoC Definition: samd21g18a */
+/ {
+    soc {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        compatible = "simple-bus";
+        ranges;
+    };
+};

@@ -1,0 +1,11 @@
+menu "Board: arduino_zero"
+
+config BOARD_arduino_zero
+    bool "arduino_zero"
+    select ARCH_cortex_m0plus
+    select SOC_samd21g18a
+    default y
+    help
+      Curated hardware definition for arduino_zero (samd21g18a).
+
+endmenu
